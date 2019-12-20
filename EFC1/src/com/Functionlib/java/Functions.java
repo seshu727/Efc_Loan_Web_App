@@ -1,4 +1,4 @@
-package com.Functionlib.java;
+  package com.Functionlib.java;
 
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -254,7 +254,7 @@ public class Functions extends LaunchApp {
 				
 				Thread.sleep(3000);
 				driver.findElement(By.xpath("//div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
-				 System.out.println("New appraisal creation completed");
+				System.out.println("New appraisal creation completed");
 				 
 			 }
 			 
@@ -264,7 +264,7 @@ public class Functions extends LaunchApp {
 				 
 				 System.out.println("New appraisal creation started");
 				
-					Thread.sleep(4000);
+					 Thread.sleep(4000);
 					 driver.findElement(By.xpath("//div[@class='breadcrumb-widget']//a[@class='icon-bars sidebar-toggle']")).click();
 					 Thread.sleep(2000);
 					 driver.findElement(By.xpath("//app-com-render[1]/div[1]/app-side-menu[1]/ul[1]/li[2]/a[1]/span[1]")).click();
@@ -299,11 +299,11 @@ public class Functions extends LaunchApp {
 				Thread.sleep(3000);
 				
 				driver.findElement(By.xpath("//div[2]/ul[1]/li[1]/span[1]")).click();
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 				System.out.println("selected client name");
 				
 			    driver.findElement(By.xpath("//p-autocomplete[1]/span[1]/button[1]")).click();
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 				a.sendKeys(Keys.ARROW_DOWN);
 				Thread.sleep(3000);
 				a.sendKeys(Keys.ENTER);
@@ -311,16 +311,16 @@ public class Functions extends LaunchApp {
 			   
 				
 				 Thread.sleep(2000);
-				driver.findElement(By.id("business_information_no_of_yrs_in_bus")).sendKeys("12");		
+				 driver.findElement(By.id("business_information_no_of_yrs_in_bus")).sendKeys("12");		
 				 Thread.sleep(2000);
-				driver.findElement(By.xpath("//div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
+				 driver.findElement(By.xpath("//div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
 				 
 				 
 			 }
 			 
 			  @SuppressWarnings("static-access")
 		     	public static void navigatesTonewAppraisal() throws Throwable {
-					Thread.sleep(2000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath("//app-page-layout[1]/div[2]/div[1]/a[1]")).click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//span[@class='nav-link-text'][contains(text(),'Appraisals')]")).click();
@@ -332,12 +332,12 @@ public class Functions extends LaunchApp {
 			  
 			  @SuppressWarnings("static-access")
 		     	public static void navigatesTonewAppraisalawithexistingclient() throws Throwable {
-					Thread.sleep(2000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath("//app-page-layout[1]/div[2]/div[1]/a[1]")).click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//span[@class='nav-link-text'][contains(text(),'Appraisals')]")).click();
 				Thread.sleep(2000);
-		       driver.findElement(By.xpath("/html/body/app-root/app-page-layout/div[2]/div[3]/div/app-page/div/zc-page-render/zc-block-tree-node/zc-block-tree-node/app-com-render/div/zc-widget-data-list/div/p-table/div/div[2]/table/tbody/tr[1]/td[1]")).click();
+		        driver.findElement(By.xpath("/html/body/app-root/app-page-layout/div[2]/div[3]/div/app-page/div/zc-page-render/zc-block-tree-node/zc-block-tree-node/app-com-render/div/zc-widget-data-list/div/p-table/div/div[2]/table/tbody/tr[1]/td[1]")).click();
 			}
 			  @SuppressWarnings("static-access")
 			   public static void navigatesToclientcreation() throws Throwable {
@@ -550,7 +550,7 @@ public class Functions extends LaunchApp {
 			 }
 			 
 			 public static void entrepreneurinfo() throws Throwable {
-				  Thread.sleep(1000);
+				    Thread.sleep(1000);
 				    driver.findElement(By.xpath("//app-page-layout[1]/div[2]/div[1]/a[1]")).click();
 				    Thread.sleep(1000);
 					driver.findElement(By.xpath("//span[@class='nav-link-text'][contains(text(),'Appraisals')]")).click();
@@ -562,7 +562,7 @@ public class Functions extends LaunchApp {
 				  //To scroll the page down
 				  ((JavascriptExecutor)driver).executeScript("window.scrollBy(200,300)");
 				  Thread.sleep(8000);
-				driver.findElement(By.xpath("//zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-select[1]/div[1]/p-dropdown[1]/div[1]/div[3]")).click();
+				  driver.findElement(By.xpath("//zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-select[1]/div[1]/p-dropdown[1]/div[1]/div[3]")).click();
 				  Thread.sleep(1000);
 				 Actions f = new Actions(driver);
 				 f.sendKeys(Keys.ARROW_DOWN);
@@ -573,7 +573,7 @@ public class Functions extends LaunchApp {
 				 f.build().perform();
 				  Thread.sleep(2000);
 				 // ((JavascriptExecutor)driver).executeScript("window.scrollBy(200,300)");
-				 driver.findElement(By.xpath("//*[@id=\"entrepreneur@entre_proff_hist\"]")).clear();
+				      driver.findElement(By.xpath("//*[@id=\"entrepreneur@entre_proff_hist\"]")).clear();
 				      driver.findElement(By.xpath("//*[@id=\"entrepreneur@entre_proff_hist\"]")).sendKeys("ok");
 				      Thread.sleep(1000);
 
@@ -612,10 +612,10 @@ public class Functions extends LaunchApp {
 				 public static void businessProfile() throws Throwable {
 					 System.out.println("user in business profile page");
 					 
-						Thread.sleep(10000);
+					 Thread.sleep(10000);
 					 driver.findElement(By.xpath("//div[1]/zc-wrapper-validation-messages[1]/zc-file[1]/div[1]")).click();
 						
-						fileUpload();
+					 fileUpload();
 					 System.out.println("done");
 				
 					 ((JavascriptExecutor)driver).executeScript("window.scrollBy(50,200)");
@@ -680,10 +680,10 @@ public class Functions extends LaunchApp {
 						act.sendKeys(Keys.ARROW_DOWN);
 						act.sendKeys(Keys.ENTER);
 						act.build().perform();
-						 Thread.sleep(1000);
+						Thread.sleep(1000);
 						driver.findElement(By.xpath("//div[1]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[3]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-currency-field[1]/div[1]/div[2]/div[1]/input[1]")).clear();
 						driver.findElement(By.xpath("//div[1]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[3]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-currency-field[1]/div[1]/div[2]/div[1]/input[1]")).sendKeys(data1);
-						 Thread.sleep(1000);
+						Thread.sleep(1000);
 						driver.findElement(By.xpath("//div[1]/div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
 			
 					 
@@ -698,9 +698,9 @@ public class Functions extends LaunchApp {
 							//System.out.println(data1);
 							//Thread.sleep(10000);
 							driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[2]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-currency-field[1]/div[1]/div[2]/div[1]/input[1]")).clear();
-							 Thread.sleep(1000);
+							Thread.sleep(1000);
 							driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[2]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-currency-field[1]/div[1]/div[2]/div[1]/input[1]")).sendKeys(data1);
-							 Thread.sleep(1000);
+							Thread.sleep(1000);
 							driver.findElement(By.xpath("//div[1]/div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
 						
 							
@@ -719,7 +719,7 @@ public class Functions extends LaunchApp {
 				 
 				 
 			public static void Sales() throws Throwable {
-				  Thread.sleep(2000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-page-layout[1]/div[2]/div[3]/div[1]/app-page[1]/div[1]/zc-page-render[1]/zc-block-tree-node[1]/zc-block-tree-node[1]/app-com-render[1]/div[1]/zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/span[2]/a[1]")).click();
 				Thread.sleep(7000);
 				System.out.println("user in sales form");
@@ -808,11 +808,11 @@ public class Functions extends LaunchApp {
 
 		 Thread.sleep(2000);
 		driver.findElement(By.xpath("//table[1]/tbody[1]/tr[11]/td[3]/a[1]")).click();
-		  Thread.sleep(2000);
+		 Thread.sleep(2000);
 
 		salesmonthlycode();
 
-		 Thread.sleep(2000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//table[1]/tbody[1]/tr[12]/td[3]/a[1]")).click();
 		Thread.sleep(2000);
 
