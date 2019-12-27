@@ -15,34 +15,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+  
 
 import com.EFClogin.java.LaunchApp;
 import com.Utilities.java.Excel;
 
-
-
 public class Functions extends LaunchApp {
-	 static JavascriptExecutor js = (JavascriptExecutor) driver;
+	static JavascriptExecutor js = (JavascriptExecutor) driver;
 	static ClipboardOwner owner = null;
-	
 	public static void Login() throws Throwable {
-		
-		System.out.println("Application started");
-		
-		System.out.println("title of application is:"+driver.getTitle());
-		System.out.println("Url of App is:"+driver.getCurrentUrl());
-		
-             Thread.sleep(1000);
-			 driver.findElement(By.xpath("//zc-block-tree-node[1]/app-com-render[2]/div[1]/zc-widget-login[1]/div[1]/div[1]/form[1]/div[1]/input[1]")).sendKeys("lo1");
-			 Thread.sleep(1000);
-			 driver.findElement(By.xpath("//zc-block-tree-node[1]/app-com-render[2]/div[1]/zc-widget-login[1]/div[1]/div[1]/form[1]/div[2]/input[1]")).sendKeys("123123");
-			 Thread.sleep(1000);
+		     System.out.println("Application started");
+		     System.out.println("title of application is:"+driver.getTitle());
+		     System.out.println("Url of App is:"+driver.getCurrentUrl());
+             Thread.sleep(3000);
+			 driver.findElement(By.xpath("//input[@type='text']")).sendKeys("lo1");
+			 Thread.sleep(3000);
+			 driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123123");
+			 Thread.sleep(2000);
 			 driver.findElement(By.xpath("//div[4]/button[1]")).click();
 			 Thread.sleep(5000);
-			/// String loginStatus = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("toast-container"))).getText();
+			 ///String loginStatus = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("toast-container"))).getText();
 			 String actualUrl="http://efcdev.firstaccess.co/#/loan/dashboard/dashboard";
-		        String expectedUrl= driver.getCurrentUrl();
+		     String expectedUrl= driver.getCurrentUrl();
 		        
 		     if(actualUrl.equalsIgnoreCase(expectedUrl)) {
 		    	 System.out.println("Test Passed");
@@ -50,11 +44,10 @@ public class Functions extends LaunchApp {
 		     }else {
 		    	 System.out.println("Test Failed");
 		     }
-	}
+	       }
 		        
 		     public static void Waits() {
-		    	 driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		    	 
+		     driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);	 
 		     }
 		     
 		     public static void Rightarrow() {
@@ -64,9 +57,7 @@ public class Functions extends LaunchApp {
 	
 	
 	
-	public static void fileUpload() throws Throwable {
-		
-		
+	    public static void fileUpload() throws Throwable {
 		StringSelection s = new StringSelection("C:\\Users\\PC\\Pictures\\Screenshots\\Screenshot (1).png");
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, owner);
 		 Robot r = new Robot();
@@ -87,10 +78,10 @@ public class Functions extends LaunchApp {
 		 
 	}
 			 
-			 public static void clientCreation() throws Throwable {
-			System.out.println("Client creation started");
-			Thread.sleep(3000);
-					 driver.findElement(By.xpath("//input[@type='text'][@id='name']")).sendKeys("Sruthi");
+			         public static void clientCreation() throws Throwable {
+			         System.out.println("Client creation started");
+		             Thread.sleep(3000);
+					 driver.findElement(By.xpath("//input[@type='text'][@id='name']")).sendKeys("PK");
 					 Thread.sleep(1000);
 					 driver.findElement(By.cssSelector("#client_number")).sendKeys("123123123123");
 					 Thread.sleep(2000);
@@ -135,17 +126,17 @@ public class Functions extends LaunchApp {
 					driver.findElement(By.xpath("//formly-form[1]/div[1]/button[1]")).click();
 					Thread.sleep(10000);
 					
+					WebElement table=driver.findElement(By.xpath("//div[1]/zc-widget-data-list[1]/div[1]/p-table[1]/div[1]/div[2]/table[1]"));
+					List<WebElement>rows=table.findElements(By.tagName("tr"));
+					System.out.println("no of rows are::"+rows.size());
+					List<WebElement>cols=rows.get(1).findElements(By.tagName("td"));
+					System.out.println("no of columns are::"+cols.size());
+					String dataoftable =cols.get(0).getText();
+					System.out.println(dataoftable);
+						
+					
 				
-					
-				WebElement table=driver.findElement(By.xpath("//div[1]/zc-widget-data-list[1]/div[1]/p-table[1]/div[1]/div[2]/table[1]"));
-				List<WebElement>rows=table.findElements(By.tagName("tr"));
-				System.out.println("no of rows are::"+rows.size());
-				List<WebElement>cols=rows.get(1).findElements(By.tagName("td"));
-				System.out.println("no of columns are::"+cols.size());
-				String dataoftable =cols.get(0).getText();
-				System.out.println(dataoftable);
-					
-			    	   if(dataoftable.equalsIgnoreCase("Sruthi")) {
+			    	   if(dataoftable.equalsIgnoreCase("pk")) {
 			    		   System.out.println("Client creation success");
 			    		   System.out.println("Test passed:::::::::::");
 			    		   
@@ -206,7 +197,7 @@ public class Functions extends LaunchApp {
 			    	    }
 			    	
 	
-			 public static void smeLoan() throws Throwable {
+			     public static void smeLoan() throws Throwable {
 				 System.out.println("New appraisal creation started");
 				 
 					
@@ -229,25 +220,25 @@ public class Functions extends LaunchApp {
 				 //here we have to change if we want select a women ,to just one tap down 
 				 driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/div[2]/div[1]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[4]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-select[1]/div[1]/p-dropdown[1]/div[1]/div[3]")).click();
 				 Thread.sleep(1000);
-				 a.sendKeys(Keys.ARROW_DOWN);
-			     	a.sendKeys(Keys.ARROW_DOWN);
+				   a.sendKeys(Keys.ARROW_DOWN);
+			       a.sendKeys(Keys.ARROW_DOWN);
 				   a.sendKeys(Keys.ARROW_DOWN);
 				   a.sendKeys(Keys.ENTER);
 				   a.build().perform();
-					 Thread.sleep(2000);
+				   Thread.sleep(2000);
 				
 				driver.findElement(By.xpath("//formly-field[5]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-select[1]/div[1]/p-dropdown[1]/div[1]/div[3]")).click();
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 				driver.findElement(By.xpath("//div[2]/ul[1]/li[1]/span[1]")).click();
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 			
 				
 			    driver.findElement(By.xpath("//p-autocomplete[1]/span[1]/button[1]")).click();
 				
 
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 				a.sendKeys(Keys.ARROW_DOWN);
-				 Thread.sleep(2000);
+				Thread.sleep(2000);
 				a.sendKeys(Keys.ENTER);
 				a.build().perform();
 				//System.out.println("selected client name");
@@ -337,10 +328,9 @@ public class Functions extends LaunchApp {
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//span[@class='nav-link-text'][contains(text(),'Appraisals')]")).click();
 				Thread.sleep(2000);
-		        driver.findElement(By.xpath("/html/body/app-root/app-page-layout/div[2]/div[3]/div/app-page/div/zc-page-render/zc-block-tree-node/zc-block-tree-node/app-com-render/div/zc-widget-data-list/div/p-table/div/div[2]/table/tbody/tr[1]/td[1]")).click();
+		        driver.findElement(By.xpath("//tr[1]//td[1]")).click();
 			}
-			  @SuppressWarnings("static-access")
-			   public static void navigatesToclientcreation() throws Throwable {
+			  public static void navigatesToclientcreation() throws Throwable {
 				    driver.findElement(By.xpath("//app-page-layout[1]/div[2]/div[1]/a[1]")).click();
 					Thread.sleep(2000);
 					driver.findElement(By.xpath("//span[@class='nav-link-text'][contains(text(),'Clients')]")).click();
@@ -353,10 +343,10 @@ public class Functions extends LaunchApp {
 
 				 System.out.println("user in client info form");
 				 Thread.sleep(8000);
-				 driver.findElement(By.xpath("//div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]")).click();
+				 driver.findElement(By.xpath("//div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]")).click();
 				 Thread.sleep(5000);
 				 driver.findElement(By.xpath("//div[1]/div[1]/div[2]/div[1]/span[1]/a[1]")).click();
-				 Thread.sleep(2000);
+				 Thread.sleep(4000);
 				 System.out.println("business info form");
 				 driver.findElement(By.xpath("//div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[1]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("software");
 				 Thread.sleep(2000);
@@ -434,7 +424,7 @@ public class Functions extends LaunchApp {
 			 public static void loanApp() throws Throwable {
 				
 				 System.out.println("user at loan application form");
-				  Thread.sleep(4000);
+				 Thread.sleep(4000);
 				 driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-page-layout[1]/div[2]/div[3]/div[1]/app-page[1]/div[1]/zc-page-render[1]/zc-block-tree-node[1]/zc-block-tree-node[1]/app-com-render[1]/div[1]/zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[1]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-currency-field[1]/div[1]/div[2]/div[1]/input[1]")).sendKeys("5000000");
 				 Thread.sleep(2000);
 				 driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-page-layout[1]/div[2]/div[3]/div[1]/app-page[1]/div[1]/zc-page-render[1]/zc-block-tree-node[1]/zc-block-tree-node[1]/app-com-render[1]/div[1]/zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[2]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("12");
@@ -447,8 +437,8 @@ public class Functions extends LaunchApp {
 				   // Thread.sleep(4000);
 				    Actions f1=new Actions(driver);
 				    f1.sendKeys(Keys.PAGE_DOWN);
-					 f1.build().perform();
-					 Thread.sleep(10000);
+					f1.build().perform();
+					Thread.sleep(10000);
 				 driver.findElement(By.xpath("//zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-select[1]/div[1]/p-dropdown[1]/div[1]/div[3]")).click();
 				 Thread.sleep(2000);
 				 Actions f = new Actions(driver);
@@ -496,22 +486,22 @@ public class Functions extends LaunchApp {
 				 Thread.sleep(7000);
 				 driver.findElement(By.xpath("//zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/span[2]/a[1]")).click();
 				 System.out.println("user in security form");
-				 Thread.sleep(2000);
-				 driver.findElement(By.xpath("//div[1]/form[1]/formly-form[1]/formly-field[1]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("seshu");
-				 Thread.sleep(2000);
+				 Thread.sleep(3000);
+				 driver.findElement(By.id("secu_guar_col_prop@name")).sendKeys("seshu");
+				 Thread.sleep(3000);
 				 driver.findElement(By.xpath("//div[1]/form[1]/formly-form[1]/formly-field[2]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("cool");
-				 Thread.sleep(2000);
+				 Thread.sleep(3000);
 				 driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-page-layout[1]/div[2]/div[3]/div[1]/app-page[1]/div[1]/zc-page-render[1]/zc-block-tree-node[1]/zc-block-tree-node[1]/app-com-render[1]/div[1]/zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[3]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("friend");
-				 Thread.sleep(2000);
+				 Thread.sleep(3000);
 				 Actions d = new Actions(driver);
 				 d.sendKeys(Keys.PAGE_DOWN);
 				 d.build().perform();
 				 Thread.sleep(7000);
 				 driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-page-layout[1]/div[2]/div[3]/div[1]/app-page[1]/div[1]/zc-page-render[1]/zc-block-tree-node[1]/zc-block-tree-node[1]/app-com-render[1]/div[1]/zc-widget-stage-form[1]/zc-stage-form[1]/div[2]/div[3]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/formly-field[5]/zc-wrapper-label[1]/zc-wrapper-fieldset[1]/div[1]/zc-wrapper-validation-messages[1]/zc-field-input[1]/div[1]/input[1]")).sendKeys("normal");
-				 Thread.sleep(2000);
+				 Thread.sleep(3000);
 				 
 				 driver.findElement(By.xpath("//*[@id=\"secu_guar_col_prop@description\"]")).sendKeys("ok");
-				 Thread.sleep(2000);
+				 Thread.sleep(3000);
 				 driver.findElement(By.xpath("//*[@id=\"secu_guar_col_prop@collateral_value\"]")).sendKeys("10000000");
 				 Thread.sleep(3000);
 				 System.out.println("clicking save btn");
@@ -669,7 +659,7 @@ public class Functions extends LaunchApp {
 				 public static void sundaytomonday() throws Throwable {
 					 
 					 Excel f = new Excel("C:\\Users\\PC\\Desktop\\appium1\\EFCwebapp\\Excelsheet\\EFC.xlsx");
-					    String data=f.getCellData1("Sales", 0, 0);
+					    f.getCellData1("Sales", 0, 0);
 					    String data1=f.getCellData1("Sales", 0, 1);
 						//System.out.println(data);
 						//System.out.println(data1);
@@ -1018,6 +1008,7 @@ public class Functions extends LaunchApp {
 			}
 			
 			public static void Operationexpenses() throws Throwable {
+				try {
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("/html/body/app-root/app-page-layout/div[2]/div[3]/div/app-page/div/zc-page-render/zc-block-tree-node/zc-block-tree-node/app-com-render/div/zc-widget-stage-form/zc-stage-form/div[2]/div[1]/i")).click();
 				
@@ -1027,7 +1018,7 @@ public class Functions extends LaunchApp {
 				//Rightarrow();
 				Excel excel = new Excel("C:\\Users\\PC\\Desktop\\appium1\\EFCwebapp\\Excelsheet\\EFC.xlsx");
 				
-				for(int i=0;i<excel.rowCount("Sales");i++) {
+				for(int i=0;i<=excel.rowCount("Sales");i++) {
 				String op=	excel.getCellData1("Sales", i, 6);
 				
 			WebElement  wb=	driver.findElement(By.id("operation_exp@facilities_rent"));
@@ -1054,35 +1045,118 @@ public class Functions extends LaunchApp {
 			WebElement  wb7=	driver.findElement(By.id("operation_exp@empl_temp_emp"));
 			wb7.clear();
 			wb7.sendKeys(op);
-					
+				}		
 			WebElement  wb8=	driver.findElement(By.id("operation_exp@comments_on_emp"));
 			wb8.clear();
 			wb8.sendKeys("good");
-			driver.findElement(By.xpath("/html/body/app-root/app-page-layout/div[2]/div[3]/div/app-page/div/zc-page-render/zc-block-tree-node/zc-block-tree-node/app-com-render/div/zc-widget-stage-form/zc-stage-form/div[2]/div[3]/div/div[1]/div[2]/div/div/button")).click();
 			Thread.sleep(5000);
-				
-					
-					
-				}
+			driver.findElement(By.xpath("//div[3]/div/div[1]/div[2]/div/div/button")).click();
 			
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+				}
+				}
+			public static void currentAsserts() throws InterruptedException {
 				
+				try {
+				Thread.sleep(3000);
+				//menu bar
+				driver.findElement(By.xpath("//div[@class='stage-menu']//i[@class='icon-angle-double-right']")).click();
 				
-				
-				
-				
-				
-				
+				Thread.sleep(3000);
+				//asserts
+				driver.findElement(By.xpath("//span[contains(text(),'Current assets')]")).click();
+				Thread.sleep(3000);
+				//driver.findElement(By.xpath("//a[@class='icon-long-right-arrow']")).click();
+				//Thread.sleep(3000);
+				driver.findElement(By.id("current_assets@time_of_visit")).clear();
+				driver.findElement(By.id("current_assets@time_of_visit")).sendKeys("12");
+
+				Thread.sleep(3000);
+				driver.findElement(By.id("current_assets@cash_hand")).clear();
+				driver.findElement(By.id("current_assets@cash_hand")).sendKeys("10000000");
+		
+				Thread.sleep(3000);
+				driver.findElement(By.id("current_assets@efc_account_number")).clear();
+				driver.findElement(By.id("current_assets@efc_account_number")).sendKeys("2343242345234");
+				Thread.sleep(3000);
+				driver.findElement(By.id("current_assets@bank_acc_inst")).clear();
+				driver.findElement(By.id("current_assets@bank_acc_inst")).sendKeys("all banks");
+				Thread.sleep(7000);
+			/*
+			 * driver.findElement(By.xpath("//lable[@contains(text(),'Select']")).click();
+			 * Thread.sleep(3000); Actions act = new Actions(driver);
+			 * act.sendKeys(Keys.ARROW_DOWN); act.sendKeys(Keys.ARROW_DOWN);
+			 * act.sendKeys(Keys.ENTER); act.build().perform(); Thread.sleep(5000);
+			 * driver.findElement(By.xpath("//lable[@contains(text(),'Select']")).click();
+			 * Thread.sleep(3000); act.sendKeys(Keys.ARROW_DOWN);
+			 * act.sendKeys(Keys.ARROW_DOWN); act.sendKeys(Keys.ENTER);
+			 * act.build().perform();
+			 */
+		    	Thread.sleep(3000);
+		        JavascriptExecutor jse = (JavascriptExecutor)driver;
+		        jse.executeScript("scroll(300, 200);");
+		    	Thread.sleep(3000); 
+		        driver.findElement(By.xpath("//button[@contains(text(),'Add']")).click();
+		        Thread.sleep(1000);
+		        driver.findElement(By.xpath("//input[@type='text']")).clear();
+		        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("18/12/2019");
+		        Thread.sleep(1000);
+		        driver.findElement(By.xpath("/html[1]/body[1]/div[14]/table[1]/tbody[1]/tr[3]/td[4]/a[1]")).click();
+		        Thread.sleep(1000);
+		        driver.findElement(By.id("credits")).clear();
+		        driver.findElement(By.id("credits")).sendKeys("10000000");
+		        Thread.sleep(1000);
+		        driver.findElement(By.id("debits")).clear();
+		        driver.findElement(By.id("debits")).sendKeys("1000000");
+		        Thread.sleep(1000);
+		        driver.findElement(By.id("end_of_month_balance")).clear();
+		        driver.findElement(By.id("end_of_month_balance")).sendKeys("10000000");
+		        Thread.sleep(1000);
+		        driver.findElement(By.xpath("/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/div[2]/zc-widget-form[1]/div[1]/div[1]/div[1]/form[1]/formly-form[1]/div[1]/button[2]")).click();
+		        
+		        jse.executeScript("scroll(300, 500);");
+		    	Thread.sleep(3000);
+		        
+		        driver.findElement(By.xpath("//button[@type='button']")).click();
+		        driver.findElement(By.id("name")).clear();
+		        driver.findElement(By.id("name")).sendKeys("10000000");
+		        driver.findElement(By.id("initial_amount")).clear();
+		        driver.findElement(By.id("initial_amount")).sendKeys("1000000");
+		        driver.findElement(By.id("term")).sendKeys("10000000");
+		        driver.findElement(By.id("balance")).sendKeys("");
+		        driver.findElement(By.id("repay_prob")).sendKeys("10000000");
+		        driver.findElement(By.id("amounts_to_receive")).sendKeys("");
+		        driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/zc-widget-form/div/div/div/form/formly-form/div/button[2]")).sendKeys("10000000");
+		        driver.findElement(By.id("initial_amount")).sendKeys("");
+		        jse.executeScript("scroll(300, 500);");
+		     
+				}catch (Exception e) {
+				e.printStackTrace();
+				}
 			}
 
 		
-	}
+		}
+					
+    
+					
 				
-				
-			
+					 
 				 
-			 
-		
+			
 
+					
+					
+			
+				
+				
+				
+				
+				
+				
+	
 	
 		
 	
