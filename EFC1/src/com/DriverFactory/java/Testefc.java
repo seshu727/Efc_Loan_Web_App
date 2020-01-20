@@ -12,21 +12,21 @@ public class Testefc extends Functions {
 	@Test
 	public static void AppTest() throws Throwable {
 		Login();
-		navigatesTonewAppraisalawithexistingclient();//if u use this method, comment navigatestoclientcreation n clientcreation n navigatesTonewAppraisal
-		//navigatesToclientcreation();
-		//clientCreation();
-		//navigatesTonewAppraisal();
+		//navigatesTonewAppraisalawithexistingclient();//if u use this method, comment navigatestoclientcreation n clientcreation n navigatesTonewAppraisal
+		navigatesToclientcreation();
+		clientCreation();
+		navigatesTonewAppraisal();
 	    //womenLoan();
-		//smeLoan();
+		smeLoan();
 		//homeLoan();
-	   // clientInfoandbusiness();
-		//loanApp();
-		//Security();
-	//	entrepreneurinfo();
-		//businessProfile();
-		//Sales();
-		//Purchases();
-		//Operationexpenses();
+	    clientInfoandbusiness();
+		loanApp();
+		Security();
+	    entrepreneurinfo();
+		businessProfile();
+		Sales();
+		Purchases();
+		Operationexpenses();
 		currentAsserts();
 		
 		

@@ -11,7 +11,9 @@ public class LaunchApp {
 	public static void loadbrowser() throws Throwable {
 		 driver = new ChromeDriver();
 		 driver.get("http://efcdev.firstaccess.co/");
+		 Thread.sleep(10000);
 		 driver.manage().window().maximize(); 
+		 Thread.sleep(5000);
 		
 	}
 	
